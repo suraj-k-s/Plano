@@ -11,11 +11,21 @@ if(isset($_POST['btn_submit']))
 	$insQry="update tbl_site set site_estimate='".$siteestimate."',site_sketchup='".$sitesketchup."',site_model='".$sitemodel."',site_status=4 where site_id=".$_GET['sid'];
 	if($conn->query($insQry))
 	{
-		echo "Inserted";
+		?>
+    <script>
+      alert('Inserted')
+      window.location="MySite.php"
+      </script>
+      <?php
 	}
 	else
 	{
-		echo "Failed";
+		?>
+    <script>
+      alert('Failed')
+      window.location="MySite.php"
+      </script>
+      <?php
 	}
 }
 ?>

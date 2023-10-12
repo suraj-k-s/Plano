@@ -17,7 +17,6 @@ include("Head.php");
 <td>Name</td>
 <td>Contact</td>
 <td>Email</td>
-<td>Gender</td>
 <td>Address</td>
 <td>District</td>
 <td>Place</td>
@@ -32,7 +31,6 @@ $row=$res->fetch_assoc();
       <td><?php echo $row['user_name'] ?></td>
       <td><?php echo $row['user_contact'] ?></td>
       <td><?php echo $row['user_email'] ?></td>
-      <td><?php echo $row['user_gender'] ?></td>
       <td><?php echo $row['user_address'] ?></td>
       <td><?php echo $row['district_name'] ?></td>
       <td><?php echo $row['place_name'] ?></td>

@@ -2,20 +2,29 @@
 include("../Assets/Connection/Connection.php");
 if(isset($_POST['txt_submit']))
 {
-	$updatedate=$_POST['txt_date'];
 	$updatetime=$_POST['txt_time'];
 	$updatedetails=$_POST['txt_details'];
 	$updateimage=$_FILES['ins_image']['name'];
     $tempphoto=$_FILES['ins_image']['tmp_name'];
 	move_uploaded_file($tempphoto,'../Assets/Files/Update/Photo/'.$updateimage);
-	$insQry="insert into tbl_update(update_date,update_time,update_details,update_image,site_id) values('".$updatedate."','".$updatetime."','".$updatedetails."','".$updateimage."','".$_GET['did']."')";
+	$insQry="insert into tbl_update(update_date,update_time,update_details,update_image,site_id) values(curdate(),'".$updatetime."','".$updatedetails."','".$updateimage."','".$_GET['did']."')";
 	if($conn->query($insQry))
 	{
-		echo "Inserted";
+		?>
+    <script>
+      alert('Inserted')
+      window.location="MySite.php"
+      </script>
+      <?php
 	}
 	else
 	{
-		echo "Failed";
+		?>
+    <script>
+      alert('Failed')
+      window.location="MySite.php"
+      </script>
+      <?php
 	}
 }
 ?>
@@ -32,11 +41,6 @@ include("Head.php");
 <body>
 <form id="form1" name="form1" method="post" enctype="multipart/form-data" action="">
   <table width="406" border="1">
-    <tr>
-      <td width="190">Date</td>
-      <td width="200"><label for="txt_date"></label>
-      <input type="date" name="txt_date" required="required" id="txt_date" /></td>
-    </tr>
     <tr>
       <td>Time</td>
       <td><label for="txt_time"></label>
