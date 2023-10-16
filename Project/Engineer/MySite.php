@@ -10,6 +10,7 @@ if(isset($_GET['sid'])){
 	  ?>
 	  <script>
 		alert('Updated')
+		window.location="MySite.php"
 		</script>
 		<?php
 	}
@@ -27,6 +28,7 @@ if(isset($_GET['sid'])){
 <table width="200" border="1">
     <tr>
       <td>SLno</td>
+      <td>Site ID</td>
       <td>Site Details</td>
       <td>Landmark</td>
       <td>Location</td>
@@ -45,12 +47,11 @@ if(isset($_GET['sid'])){
 		?>
     <tr>
       <td><?php echo ++$i ?></td>
+      <td><?php echo $row['site_id'] ?></td>
       <td><?php echo $row['site_details'] ?></td>
       <td><?php echo $row['site_landmark'] ?></td>
       <td><?php echo $row['district_name'] ,"   ", $row['place_name'] ?></td>
-      <td>
-	  <a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" target="_blank">View Photo</a>
-	  </td>
+      <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" target='_blank'>View Photo</a></td>
       <td><?php echo $row['site_plot'] ?></td>
       <td><?php echo $row['user_name'] ?></td>
       <td>

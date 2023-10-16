@@ -22,14 +22,13 @@ if(isset($_GET['sid'])){
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container mt-4">
     <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>SLno</th>
                 <th>Site Details</th>
-                <th>Landmark</th>
                 <th>Location</th>
                 <th>Image</th>
                 <th>Plotarea</th>
@@ -50,10 +49,8 @@ if(isset($_GET['sid'])){
                 <tr>
                     <td><?php echo ++$i ?></td>
                     <td><?php echo $row['site_details'] ?></td>
-                    <td><?php echo $row['site_landmark'] ?></td>
-                    <td><?php echo $row['district_name'] . ", " . $row['place_name'] ?></td>
-                    <td>
-                    <a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" target="_blank">View Photo</a></td>
+                    <td><?php echo $row['site_landmark']."<br>". $row['district_name'] . ", " . $row['place_name'] ?></td>
+                    <td><img src="../Assets/Files/Request/Photo/<?php echo $row['site_image'] ?>" height="300" /></td>
                     <td><?php echo $row['site_plot'] ?></td>
                     <td><?php echo $row['user_name'] ?></td>
                     <td>
@@ -178,7 +175,7 @@ if(isset($_GET['sid'])){
                                     <?php
                                 }
                                 ?>
-                            </select><br><br>
+                            </select>
                             <button type="button" onclick="assignEng(<?php echo $row['site_id'] ?>)">Assign</button>
                             <?php
                         }

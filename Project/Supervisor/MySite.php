@@ -53,21 +53,21 @@ include("Head.php");
       <td><?php echo $row['site_details'] ?></td>
       <td><?php echo $row['site_landmark'] ?></td>
       <td><?php echo $row['district_name'] ," ,  ", $row['place_name'] ?></td>
-      <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" download>Download</a></td>
+      <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" target='_blank'>View Photo</a></td>
       <td><?php echo $row['site_plot'] ?></td>
       <td><?php if( $row['site_estimate']!=0){
 		  echo $row['site_estimate'];
-	      }?>
+	      }?>          
       </td>
       <?php if($row['site_status']>=4){?>
-      <td><a href="../Assets/Files/SketchupGallery/Photo/<?php echo $row['site_sketchup']?>" download>Download</a></td>
-      <td><a href="../Assets/Files/SitemodelGallery/Photo/<?php echo $row['site_model']?>" download>Download</a></td>
+        <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_sketchup']?>" target='_blank'>View Photo</a></td>
+        <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_model']?>" target='_blank'>View Photo</a></td>
       <?php
 	  }
 	  else{
 		  echo "<td></td><td></td>";
 	  }
-	  ?>
+	  ?>      
     <td> 
     <a href="Update.php?did=<?php echo $row['site_id']?>">Update</a><br>
     <?php

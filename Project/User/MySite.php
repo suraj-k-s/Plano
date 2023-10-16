@@ -20,7 +20,6 @@ if(isset($_GET['did']))
 		 ?>
          <script>
          alert("Updated")
-      window.location="MySite.php"
          </script>
          <?php
 	}
@@ -28,7 +27,6 @@ if(isset($_GET['did']))
 	 {?>
          <script>
          alert("Failed")
-      window.location="MySite.php"
          </script>
          <?php
 	 }
@@ -64,9 +62,11 @@ include("Head.php");
 </head>
 
 <body>
-<table align="center" border="1">
+  <div class="container">
+<table class='table table-responsive' align="center" border="1">
     <tr>
       <td>SLno</td>
+      <td>Site ID</td>
       <td>Site Details</td>
       <td>Landmark</td>
       <td>Location</td>
@@ -77,6 +77,7 @@ include("Head.php");
       <td>Site Model</td>
       <td>Status</td>
       <td>Action</td>
+      <td>Daily Updates</td>
       <td>Payment</td>
     </tr>
     <?php
@@ -90,18 +91,19 @@ include("Head.php");
 		?>
     <tr>
       <td><?php echo ++$i ?></td>
+      <td><?php echo $row['site_id'] ?></td>
       <td><?php echo $row['site_details'] ?></td>
       <td><?php echo $row['site_landmark'] ?></td>
       <td><?php echo $row['district_name'] ," ,  ", $row['place_name'] ?></td>
-      <td><a href="../Assets/Files/Request/Photo/<?php echo $row['site_image']?>" target="_blank">View Photo</a></td>
+      <td><a href='../Assets/Files/Request/Photo/<?php echo $row['site_image']?>' target='_blank'>View Photo</a></td>
       <td><?php echo $row['site_plot'] ?></td>
       <td><?php if( $row['site_estimate']!=0){
 		  echo $row['site_estimate'];
 	      }?>
       </td>
       <?php if($row['site_status']>=4){?>
-      <td><a href="../Assets/Files/SketchupGallery/Photo/<?php echo $row['site_sketchup']?>" target="_blank">View Sketch</a></td>
-      <td><a href="../Assets/Files/SitemodelGallery/Photo/<?php echo $row['site_model']?>" target="_blank">View Model</a></td>
+      <td><a href="../Assets/Files/SketchupGallery/Photo/<?php echo $row['site_sketchup']?>" target='_blank'>View Sketch</a></td>
+      <td><a href="../Assets/Files/SitemodelGallery/Photo/<?php echo $row['site_model']?>" target='_blank'>View Model</a></td>
       <?php
 	  }
 	  else{
@@ -170,7 +172,7 @@ include("Head.php");
       echo "Payment Successfull";
     }
     else if($row['site_status']==13){
-      echo "Foundation Completed<br>";
+      echo "Site Preparation Completed<br>";
     }
     else if($row['site_status']==14){
       echo "Pay the amount for Framing";
@@ -186,7 +188,6 @@ include("Head.php");
 		    
       </td>
       <td>
-      <a href="Update.php?dide=<?php echo $row['site_id']?>">DAILY UPDATES</a><br>
       <?php
 	  if($row['site_status']==4)
     {
@@ -196,6 +197,8 @@ include("Head.php");
       <?php
     }
 	  ?>
+      </td>
+      <td><a href="Update.php?dide=<?php echo $row['site_id']?>">DAILY UPDATES</a>
       </td>
       <td>
       <?php
@@ -297,6 +300,7 @@ include("Head.php");
 	}
 	?>
 </table> 
+</div>
 </body>
 <?php
 include("Foot.php");

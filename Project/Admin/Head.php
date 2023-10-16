@@ -56,7 +56,7 @@ session_start();
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-              <span class="menu-title">Dashboard</span> 
+              <span class="menu-title">Home page</span> 
             </a>
           </li>
           <li class="nav-item menu-items">

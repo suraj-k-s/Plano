@@ -13,19 +13,18 @@ if(isset($_POST['btn_submit']))
 	{
 		?>
     <script>
-      alert('Inserted')
+      alert('Requirments Send Succcessfully')
       window.location="MySite.php"
       </script>
-      <?php
+    <?php
 	}
 	else
 	{
 		?>
     <script>
-      alert('Failed')
-      window.location="MySite.php"
+      alert('Requirments Send Failed')
       </script>
-      <?php
+    <?php
 	}
 }
 ?>
